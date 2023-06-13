@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  web:
+    container_name: daily-score-web-container
+    build: .
+    command: python manage.py runserver 0.0.0.0:8001
+    volumes:
+      - .:/code
+    ports:
+      - "8002:8001"
+    depends_on:
+      - db
+
+  db:
+    container_name: daily-score-db-container
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: daily-score-db
+      MYSQL_USER: daily-score
+      MYSQL_PASSWORD: admin
+      TZ: "Asia/Tokyo"
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    volumes:
+      - daily-score-data-volume:/var/lib/mysql
+
+  # node:
+  #   container_name: daily-score-node-container
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - .:/code
+  #   command: npm start
+
+volumes:
+  daily-score-data-volume:
+    name: daily-score-data

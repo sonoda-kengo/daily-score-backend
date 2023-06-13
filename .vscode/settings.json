@@ -1,0 +1,22 @@
+{
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": [],
+  "python.formatting.provider": "none",
+  "python.formatting.blackArgs": [
+    "--line-length",
+    "119",
+    "--force-exclude",
+    "(migrations/)"
+  ],
+  "editor.formatOnSave": true,
+  "python.linting.lintOnSave": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+}
