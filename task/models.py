@@ -21,7 +21,7 @@ class DailyTask(models.Model):
     title = models.CharField(max_length=20)
     description = models.TextField(blank=True)
     work_date = models.DateField(db_index=True)
-    status = models.CharField(choices=TaskStatus.choices, default=TaskStatus.NEW, db_index=True, max_length=20)
+    status = models.IntegerField(choices=TaskStatus.choices, default=TaskStatus.NEW, db_index=True)
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, related_name="category_tasks", null=True, blank=True
     )
