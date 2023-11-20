@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-s#_(pbxj17fm)*-^rcg^j0+^t2oww-0vi0)*$c&&n3g2&bla1r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -146,7 +146,10 @@ REST_FRAMEWORK = {
 REST_USE_JWT = True
 
 # django-rest-framework-simplejwt
-SIMPLE_JWT = {"AUTH_HEADER_TYPES": ("JWT",), "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30)}
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+}
 
 
 # CORS
