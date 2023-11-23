@@ -24,14 +24,6 @@ services:
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
     volumes:
       - daily-score-data-volume:/var/lib/mysql
-  # node:
-  #   container_name: daily-score-node-container
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - .:/code
-  #   command: npm start
 
 volumes:
   daily-score-data-volume:
