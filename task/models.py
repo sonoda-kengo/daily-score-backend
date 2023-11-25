@@ -25,6 +25,8 @@ class DailyTask(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, related_name="category_tasks", null=True, blank=True
     )
+    # TODO:priority
+    # TODO:score
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
