@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "dj_rest_auth",
     "corsheaders",
     "drf_yasg",
+    "rest_framework_simplejwt.token_blacklist",
     # app
     "apiv1",
     "task",
@@ -150,6 +151,9 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "TOKEN_OBTAIN_SERIALIZER": "task.serializer.MyTokenObtainPairSerializer",
+    # do not reuse refresh token
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
 }
 
 
